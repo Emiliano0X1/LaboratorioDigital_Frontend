@@ -1,65 +1,148 @@
+"use client";
+import { useRef } from "react";
 import Image from "next/image";
 
 export default function Home() {
+
+  const sliderRef1 = useRef(null);
+  const sliderRef2 = useRef(null);
+
+  const handleSiguiente = (ref) => {
+    if (ref.current) {
+      ref.current.scrollBy({ left: 320, behavior: "smooth" });
+    }
+  };
+
+  const handleAnterior = (ref) => {
+    if (ref.current) {
+      ref.current.scrollBy({ left: -320, behavior: "smooth" });
+    }
+  };
+
+  const disciplina1 = [
+    { id: 1, img: "", title: "Libro 1" },
+    { id: 2, img: "", title: "Libro 2" },
+    { id: 3, img: "", title: "Libro 3" },
+    { id: 4, img: "", title: "Libro 4" },
+  ];
+
+  const disciplina2 = [
+    { id: 1, img: "", title: "Libro 1" },
+    { id: 2, img: "", title: "Libro 2" },
+    { id: 3, img: "", title: "Libro 3" },
+    { id: 4, img: "", title: "Libro 4" },
+  ];
+
+  const disciplina3 = [
+    { id: 1, img: "", title: "Libro 1" },
+    { id: 2, img: "", title: "Libro 2" },
+    { id: 3, img: "", title: "Libro 3" },
+    { id: 4, img: "", title: "Libro 4" },
+  ];
+
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.js file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+      <main className="space-y-12 py-10 flex flex-col items-center">
+      {/* slider 1*/}
+      <div className="w-full flex flex-col items-center">
+        <div className="w-[80%] flex justify-between items-center mb-4">
+          <h2 className="text-3xl font-semibold">Disciplina 1</h2>
+          <button className="text-blue-600 font-medium hover:underline">
+            Ver más
+          </button>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+
+        <div className="relative w-[80%] flex items-center">
+          <button
+            onClick={() => handleAnterior(sliderRef1)}
+            className="absolute left-0 z-10 bg-gray-300 hover:bg-gray-400 text-black rounded-lg w-10 h-24 flex items-center justify-center"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            ←
+          </button>
+
+          <div
+            ref={sliderRef1}
+            className="flex overflow-x-scroll scroll-smooth gap-6 px-12 no-scrollbar"
           >
-            Documentation
-          </a>
+            {disciplina1.map((item) => (
+              <div
+                key={item.id}
+                className="flex-shrink-0 bg-white rounded-xl shadow-md w-72 h-64 overflow-hidden flex flex-col items-center"
+              >
+                <Image
+                  src={item.img}
+                  alt={item.title}
+                  width={300}
+                  height={200}
+                  className="object-cover w-full h-48"
+                />
+                <p className="text-center mt-2 text-lg font-medium">
+                  {item.title}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          <button
+            onClick={() => handleSiguiente(sliderRef1)}
+            className="absolute right-0 z-10 bg-gray-300 hover:bg-gray-400 text-black rounded-lg w-10 h-24 flex items-center justify-center"
+          >
+            →
+          </button>
         </div>
-      </main>
-    </div>
+      </div>
+
+      {/* slider 2 */}
+      <div className="w-full flex flex-col items-center">
+        <div className="w-[80%] flex justify-between items-center mb-4">
+          <h2 className="text-3xl font-semibold">Disciplina 2</h2>
+          <button className="text-blue-600 font-medium hover:underline">
+            Ver más
+          </button>
+        </div>
+
+        <div className="relative w-[80%] flex items-center">
+          <button
+            onClick={() => handleAnterior(sliderRef2)}
+            className="absolute left-0 z-10 bg-gray-300 hover:bg-gray-400 text-black rounded-lg w-10 h-24 flex items-center justify-center"
+          >
+            ←
+          </button>
+
+          <div
+            ref={sliderRef2}
+            className="flex overflow-x-scroll scroll-smooth gap-6 px-12 no-scrollbar"
+          >
+            {disciplina2.map((item) => (
+              <div
+                key={item.id}
+                className="flex-shrink-0 bg-white rounded-xl shadow-md w-72 h-64 overflow-hidden flex flex-col items-center"
+              >
+                <Image
+                  src={item.img}
+                  alt={item.title}
+                  width={300}
+                  height={200}
+                  className="object-cover w-full h-48"
+                />
+                <p className="text-center mt-2 text-lg font-medium">
+                  {item.title}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          <button
+            onClick={() => handleSiguiente(sliderRef2)}
+            className="absolute right-0 z-10 bg-gray-300 hover:bg-gray-400 text-black rounded-lg w-10 h-24 flex items-center justify-center"
+          >
+            →
+          </button>
+        </div>
+      </div>
+
+      {/* slider 3 */}
+
+    </main>
   );
 }
