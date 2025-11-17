@@ -1,9 +1,9 @@
 "use client";
 import { useRef } from "react";
-import Image from "next/image";
 import { useQuery } from "@tanstack/react-query";
 import getAllResources from "../queryOptions/getAllResources";
 import IsLoading from "./Loading";
+import SliderItem from "./SliderItem";
 
 export default function SliderBooks({topic}){
     const sliderRef1 = useRef(null);
@@ -21,9 +21,8 @@ export default function SliderBooks({topic}){
     };
 
     const {data, isLoading, error} = useQuery(getAllResources()); //This is how i get the info from the database
-
     if(error){
-        alert('Hubo un error en el servidor')
+        console.log("Hubo un error en el sistema", error)
     }
 
     return(
@@ -49,22 +48,9 @@ export default function SliderBooks({topic}){
                         ref={sliderRef1}
                         className="flex overflow-x-scroll scroll-smooth gap-6 px-12 no-scrollbar"
                     >
-                        {data.map((item) => (
-                        <div
-                            key={item.id}
-                            className="shrink-0 bg-white rounded-xl shadow-md w-72 h-64 overflow-hidden flex flex-col items-center"
-                        >
-                            <Image
-                                src={item.img}
-                                alt={item.title}
-                                width={300}
-                                height={200}
-                                className="object-cover w-full h-48"
-                            />
-                            <p className="text-center mt-2 text-lg font-medium">
-                                {item.title}
-                            </p>
-                        </div>
+                        {console.log("Data before renderizing : ", data.data)}
+                        {data?.data?.map((resource) => (
+                            <SliderItem key={resource.resource_id} resource={resource}></SliderItem>
                         ))}
                     </div>
         

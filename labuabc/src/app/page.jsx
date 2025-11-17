@@ -4,15 +4,10 @@ import {useRouter} from 'next/navigation'
 
 
 export default function Home() {
-
-    const queryClient = new QueryClient();
-
     const router = useRouter();
     return(
-      <QueryClientProvider client={queryClient}>
         <div className='align-middle'>
           <button onClick={() => router.push('/biblioteca')} className='text-xl border-2 rounded-2xl p-2.5 '>Ir a la Bilioteca</button>
         </div>
-      </QueryClientProvider>
     )
 }

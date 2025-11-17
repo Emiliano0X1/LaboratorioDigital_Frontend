@@ -26,7 +26,7 @@ export default function BibliotecaDigital(){
     
       return (
           <main className="space-y-12 py-10 flex flex-col items-center">
-              <SliderBooks topicTittle= "Ciencias Naturales" ></SliderBooks>
+              <SliderBooks topicTittle= "Ciencias Naturales"></SliderBooks>
               <SliderBooks topicTittle= "Fisica Cuantica" ></SliderBooks>
               <SliderBooks topicTittle= "Negocios Internacionales"></SliderBooks>
           </main>
