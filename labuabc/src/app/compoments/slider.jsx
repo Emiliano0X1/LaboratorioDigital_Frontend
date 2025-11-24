@@ -48,8 +48,8 @@ export default function SliderBooks({topic}){
                         ref={sliderRef1}
                         className="flex overflow-x-scroll scroll-smooth gap-6 px-12 no-scrollbar"
                     >
-                        {console.log("Data before renderizing : ", data.data)}
-                        {data?.data?.map((resource) => (
+                        {console.log("Data before renderizing : ", data.data.data)}
+                        {data.data.data.map((resource) => (
                             <SliderItem key={resource.resource_id} resource={resource}></SliderItem>
                         ))}
                     </div>

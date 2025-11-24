@@ -12,7 +12,7 @@ export default function SliderItem({resource}){
         >
             <Image
                 src={""} //This is gonna be the thumbail of the PDF (1st Page) So TODO logic to get first IMAGE and show it -- resource.file.thumbail_url
-                alt={resource.file.filename} //
+                alt={"Hola mundo"} //
                 width={300}
                 height={200}
                 className="object-cover w-full h-48"
