@@ -8,13 +8,15 @@
     "start": "next start"
   },
   "dependencies": {
+    "@tanstack/react-query": "^5.90.10",
+    "next": "16.0.1",
     "react": "19.2.0",
     "react-dom": "19.2.0",
-    "next": "16.0.1"
+    "react-loading-indicators": "^1.0.1"
   },
   "devDependencies": {
-    "babel-plugin-react-compiler": "1.0.0",
     "@tailwindcss/postcss": "^4",
+    "babel-plugin-react-compiler": "1.0.0",
     "tailwindcss": "^4"
   }
 }
