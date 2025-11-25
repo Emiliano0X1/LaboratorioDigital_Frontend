@@ -1,5 +1,6 @@
 "use client";
 import { useRef } from "react";
+import Link from "next/link";
 import Image from "next/image";
 
 export default function Home() {
@@ -19,30 +20,32 @@ export default function Home() {
     }
   };
 
-  const disciplina1 = [
+const disciplinas = {
+  disciplina1: [
     { id: 1, img: "", title: "Libro 1" },
     { id: 2, img: "", title: "Libro 2" },
     { id: 3, img: "", title: "Libro 3" },
     { id: 4, img: "", title: "Libro 4" },
-  ];
-
-  const disciplina2 = [
+  ],
+  disciplina2: [
     { id: 1, img: "", title: "Libro 1" },
     { id: 2, img: "", title: "Libro 2" },
     { id: 3, img: "", title: "Libro 3" },
     { id: 4, img: "", title: "Libro 4" },
-  ];
-
-  const disciplina3 = [
+  ],
+  disciplina3: [
     { id: 1, img: "", title: "Libro 1" },
     { id: 2, img: "", title: "Libro 2" },
     { id: 3, img: "", title: "Libro 3" },
     { id: 4, img: "", title: "Libro 4" },
-  ];
-
+  ],
+};
 
   return (
       <main className="space-y-12 py-10 flex flex-col items-center">
+      <Link href="/forms">Forms</Link>
+      <h1>Biblioteca digital</h1>
+      <br/>
       {/* slider 1*/}
       <div className="w-full flex flex-col items-center">
         <div className="w-[80%] flex justify-between items-center mb-4">
@@ -64,7 +67,7 @@ export default function Home() {
             ref={sliderRef1}
             className="flex overflow-x-scroll scroll-smooth gap-6 px-12 no-scrollbar"
           >
-            {disciplina1.map((item) => (
+            {disciplinas.disciplina1.map((item) => (
               <div
                 key={item.id}
                 className="flex-shrink-0 bg-white rounded-xl shadow-md w-72 h-64 overflow-hidden flex flex-col items-center"
@@ -113,7 +116,7 @@ export default function Home() {
             ref={sliderRef2}
             className="flex overflow-x-scroll scroll-smooth gap-6 px-12 no-scrollbar"
           >
-            {disciplina2.map((item) => (
+            {disciplinas.disciplina2.map((item) => (
               <div
                 key={item.id}
                 className="flex-shrink-0 bg-white rounded-xl shadow-md w-72 h-64 overflow-hidden flex flex-col items-center"

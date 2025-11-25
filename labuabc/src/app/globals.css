@@ -13,6 +13,10 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+h1 {
+  text-align: center;
+}
+
 /* ###### Contenedores para los libros ###### */
 
 .no-scrollbar::-webkit-scrollbar {
