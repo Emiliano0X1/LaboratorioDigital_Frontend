@@ -45,16 +45,16 @@ export default function BibliotecaDigital(){
               <LoginButton></LoginButton>
               <Button variant="outline" onClick={handleNavigation}>Crear un nuevo Recurso</Button>
               
-              <SliderBooks topic= "Matematicas"></SliderBooks>
-              <SliderBooks topic= "Fisica" ></SliderBooks>
-              <SliderBooks topic= "Quimica"></SliderBooks>
-              <SliderBooks topic= "Ciencias Sociales"></SliderBooks>
-              <SliderBooks topic= "Economia"></SliderBooks>
-              <SliderBooks topic= "Literatura e Historia"></SliderBooks>     
-              <SliderBooks topic= "Medicina"></SliderBooks>
-              <SliderBooks topic= "Biologia"></SliderBooks>
-              <SliderBooks topic= "Astronomia"></SliderBooks>
-              <SliderBooks topic="Tecnologia"></SliderBooks>
+              <SliderBooks topic= "Matematicas" topic_id={3}></SliderBooks>
+              <SliderBooks topic= "Fisica" topic_id={4}></SliderBooks>
+              <SliderBooks topic= "Quimica" topic_id={5}></SliderBooks>
+              <SliderBooks topic= "Ciencias Sociales" topic_id={6}></SliderBooks>
+              <SliderBooks topic= "Economia" topic_id={7}></SliderBooks>
+              <SliderBooks topic= "Literatura e Historia" topic_id={8}></SliderBooks>     
+              <SliderBooks topic= "Medicina" topic_id={9}></SliderBooks>
+              <SliderBooks topic= "Biologia" topic_id={10}></SliderBooks>
+              <SliderBooks topic= "Astronomia" topic_id={11}></SliderBooks>
+              <SliderBooks topic="Tecnologia" topic_id={12}></SliderBooks>
           </main>
       );
 }
