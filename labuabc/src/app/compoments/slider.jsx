@@ -30,7 +30,7 @@ export default function SliderBooks({topic}){
             {isLoading ? ( <IsLoading /> ) : ( 
                 <>
                     <div className="w-[80%] flex justify-between items-center mb-4">
-                        <h2 className="text-3xl font-semibold">{topic}</h2>
+                        <h2 className="scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0">{topic}</h2>
                         <button className="text-blue-600 font-medium hover:underline">
                             Ver más
                         </button>
