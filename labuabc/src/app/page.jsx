@@ -8,7 +8,7 @@ export default function Home() {
     return(
         <div className='align-middle'>
           <button onClick={() => router.push('/biblioteca')} className='text-xl border-2 rounded-2xl p-2.5 '>Ir a la Biblioteca</button>
-          <button onClick={() => router.push('/panelAdmin')} className='text-xl border-2 rounded-2xl p-2.5 '>Ir al Panel de control</button>
+          <button onClick={() => router.push('/minijuegos')} className='text-xl border-2 rounded-2xl p-2.5 '>Minijuegos</button>
         </div>
 
         

@@ -1,3 +1,4 @@
+"use client";
 import { Button } from "@/components/ui/button"
 import {
   Field,
@@ -7,15 +8,52 @@ import {
   FieldSet,
 } from "@/components/ui/field"
 import { Input } from "@/components/ui/input"
+import { useMutation, useQuery } from "@tanstack/react-query"
+import { assignRole } from "../queryOptions/assignNewRole"
+import { useState } from "react"
 
 export default function AssignRole() {
+
+
+    const [email, setEmail] = useState("")
+    const [rol, setRol] = useState("")
+
+    const mutation = useMutation({
+        mutationFn : assignRole,
+        onSuccess : () => {
+          console.log("Rol asignado exitosamente")
+        },
+
+        onError : (error) => {
+          console.error("Hubo un error: " , error.message)
+        }
+    })
+
+    const handleSubmit = async () => {
+        try{
+
+            console.log(rol)
+            console.log(email)
+
+            if(!rol || !email){
+                throw new Error("Hay campos vacios")
+            }
+
+            mutation.mutate({email, role : rol})
+
+        } catch(error){
+            console.error("Hubo un error en el fetch", error)
+        }
+    }
+
+
   return (
     <div className="w-full max-w-md">
       <FieldSet>
         <FieldGroup>
           <Field>
             <FieldLabel htmlFor="username">Correo del Profesor</FieldLabel>
-            <Input id="username" type="text" placeholder="Max Leiter@gmail.com" />
+            <Input id="username" type="text" placeholder="Max Leiter@gmail.com" onChange={(e) => setEmail(e.target.value)} />
             <FieldDescription>
               Ingrese el correo del usuario
             </FieldDescription>
@@ -25,10 +63,10 @@ export default function AssignRole() {
             <FieldDescription>
               Ingrese el rol del nuevo participante (Admin o Profesor)
             </FieldDescription>
-            <Input id="role" type="text" placeholder="PROFESOR" />
+            <Input id="role" type="text" placeholder="PROFESOR" onChange={(e) => setRol(e.target.value)}/>
           </Field>
 
-          <Button>Submit</Button>
+          <Button onClick = {handleSubmit}>Submit</Button>
         </FieldGroup>
       </FieldSet>
     </div>

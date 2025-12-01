@@ -4,7 +4,7 @@ import { Card, CardAction, CardContent } from "@/components/ui/card";
 export default function TeacherCard({name, email}){
     return(
         <div className="flex">
-            <Card className='bg-blue-50 p-4 w-full'>
+            <Card className='bg-blue-50 p-4 mt-4 w-full'>
                 <div className="flex items-center justify-between w-full">
                     <CardContent className='flex flex-col'>
                         <p className="text-black">{name}</p>
