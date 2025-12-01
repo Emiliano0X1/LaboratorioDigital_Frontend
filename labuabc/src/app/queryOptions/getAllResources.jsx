@@ -1,15 +1,15 @@
 import { queryOptions } from "@tanstack/react-query";
 
-export default function getAllResources(){
+export default function getAllResourcesByTopic(topic_id){
     return queryOptions({
-        queryKey : ['resources'],
-        queryFn : fetchResources
+        queryKey : ['resources', topic_id],
+        queryFn : () => fetchResources(topic_id)
     });
 }
 
-const fetchResources = async () => {
+const fetchResources = async (topic_id) => {
     console.log("Antes de hacer el fetch")
-    const response = await fetch(`http://localhost:3000/api/resources`);
+    const response = await fetch(`http://localhost:3000/api/resource-topic/by-topic/${topic_id}`);
     //With this library I do not need to check posible error and only get the status
     return response.json();
 }
