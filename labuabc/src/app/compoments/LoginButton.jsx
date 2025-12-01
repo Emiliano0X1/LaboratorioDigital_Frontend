@@ -1,21 +1,22 @@
 "use client";
 
-import { useRouter } from "next/navigation";
+import { Button } from "@/components/ui/button";
+import { supabase } from "../supabaseClient";
 
-export default function LoginButton(){
-
-    const router = useRouter();
-
-    /* TODO - Not working yet
-    const handleLoginButton = () => {
-        window.location.href = "http://localhost:3000/api/users/login";
+export default function Login(){
+   
+    const loginWithGoogle = async () => {
+        await supabase.auth.signInWithOAuth({
+            provider : "google",
+            options : {
+                redirectTo : `${window.location.origin}/auth/callback`
+            }
+        })
     }
 
-    */
-
     return(
-        <div className="flex p-3 items-start bg-black rounded text-amber-50 self-start ml-10">
-            <button>Iniciar session con Google</button>
+        <div>
+            <Button onClick = {loginWithGoogle}> Login con Google</Button>
         </div>
     )
 }
