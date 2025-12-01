@@ -15,6 +15,10 @@ export default function BibliotecaDigital(){
           router.push('/formsLibro') 
       }
 
+      const handlePanelNav = () => {
+        router.push('/panelAdmin')
+      }
+
       return (
           <main className="space-y-12 py-10 flex flex-col">
               
@@ -27,6 +31,12 @@ export default function BibliotecaDigital(){
                 {user?.role === 'PROFESOR' && (
                   <div className="mr-20">
                     <Button variant="outline" onClick={handleNavigation}>Crear un nuevo Recurso</Button>
+                  </div>
+                )}
+
+                {user?.role === 'ADMIN' && (
+                  <div className="mr-20">
+                    <Button variant="outline" onClick={handlePanelNav}>Panel de Control</Button>
                   </div>
                 )}
               </div>
