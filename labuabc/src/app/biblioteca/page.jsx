@@ -31,19 +31,19 @@ return (
 <Login></Login>
 </div>
 
-
-{user?.role === 'PROFESOR' && (
-<div>
-<Button variant="outline" className="shadow hover:scale-[1.03] transition" onClick={handleNavigation}>Crear un nuevo Recurso</Button>
-</div>
+<div className="flex flex-row items-center gap-3">
+{(user?.role === 'PROFESOR' || user?.role === 'ADMIN') && (
+<Button variant="default" className="shadow hover:scale-[1.03] transition" onClick={handleNavigation}>
+Crear un nuevo Recurso
+</Button>
 )}
-
 
 {user?.role === 'ADMIN' && (
-<div>
-<Button variant="outline" className="shadow hover:scale-[1.03] transition" onClick={handlePanelNav}>Panel de Control</Button>
-</div>
+<Button variant="outline" className="shadow hover:scale-[1.03] transition" onClick={handlePanelNav}>
+Panel de Control
+</Button>
 )}
+</div>
 </div>
 
 <SliderBooks topic="Matematicas" topic_id={3}></SliderBooks>
