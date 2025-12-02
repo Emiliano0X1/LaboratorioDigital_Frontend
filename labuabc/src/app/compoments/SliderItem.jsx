@@ -35,15 +35,15 @@ export default function SliderItem({resource}){
                         height={200}
                         className="object-cover w-full h-48"
                     />
-                    <h4 className="text-center mt-2 text-lg font-medium">
+                    <h4 className="text-center mt-2 text-base font-semibold line-clamp-2">
                         {resource.title}
                     </h4>
 
-                    <p className="text-center mt-2 text-lg font-medium">
+                    <p className="text-center mt-2 text-sm text-gray-600 line-clamp-2">
                         {resource.description}
                     </p>
 
-                    <p className="text-center mt-2 text-lg font-medium">
+                    <p className="text-center mt-2 text-sm text-gray-500">
                         {new Date (resource.created_at).toLocaleDateString("es-MX")}
                     </p>
                 </CardContent>
