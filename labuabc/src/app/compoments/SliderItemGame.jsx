@@ -22,7 +22,7 @@ export default function SliderItemGames({game}){
             >
                 <CardContent>
                     <Image
-                        src={""} //This can be the tumbail of the game
+                        src={"/EmprendiFoto.jpeg"} //This can be the tumbail of the game
                         alt={"Hola mundo"} //
                         width={300}
                         height={200}
