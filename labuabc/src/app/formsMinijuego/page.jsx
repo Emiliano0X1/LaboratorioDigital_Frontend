@@ -73,7 +73,11 @@ export default function Forms() {
         <input type="text" ref={gitPageRef}  placeholder="Introduzca la Github page con el minijuego"></input>
         <br/> <br/>
 
-        <button type="button" onClick={handleSubmit}>Enviar</button>
+        <button type="button" onClick={() => {handleSubmit(); 
+        alert("Minijuego creado correctamente"); }}>
+            Enviar
+        </button>
+
         </main>     
     );
 };

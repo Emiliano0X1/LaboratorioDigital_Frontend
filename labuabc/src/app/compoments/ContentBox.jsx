@@ -31,6 +31,23 @@ export default function ResourceCarousel({ topic, topic_id }) {
         }
     };
 
+    if (!isLoading && resources.length === 0) {
+        return (
+            <div className="w-full flex flex-col items-center">
+                <div className="w-[80%] flex justify-between items-center mb-4">
+                    <h2 className="scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0">
+                        {topic}
+                    </h2>
+                    <button className="text-blue-600 font-medium hover:underline">Ver más</button>
+                </div>
+
+                <div className="w-[80%] bg-gray-100 border rounded-xl py-10 text-center text-gray-500">
+                    No hay recursos disponibles en esta categoría.
+                </div>
+            </div>
+        );
+    }
+
     return (
         <div className="w-full flex flex-col items-center">
 
@@ -48,13 +65,9 @@ export default function ResourceCarousel({ topic, topic_id }) {
                     <div className="relative w-[80%] flex items-center">
 
                         <div className="w-full grid grid-cols-4 gap-6 px-12">
-                            {visibleItems.length === 0 ? (
-                                <p>No hay recursos disponibles.</p>
-                            ) : (
-                                visibleItems.map((resource) => (
-                                    <SliderItem key={resource.resource_id} resource={resource} />
-                                ))
-                            )}
+                            {visibleItems.map((resource) => (
+                                <SliderItem key={resource.resource_id} resource={resource} />
+                            ))}
                         </div>
 
                     </div>
@@ -63,3 +76,4 @@ export default function ResourceCarousel({ topic, topic_id }) {
         </div>
     );
 }
+
