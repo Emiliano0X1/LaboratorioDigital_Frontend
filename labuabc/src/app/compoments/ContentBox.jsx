@@ -65,11 +65,6 @@ export default function GameCarousel({ topic }) {
                     <div className="relative w-[80%] flex items-center">
 
                         <div className="w-full grid grid-cols-4 gap-6 px-12">
-<<<<<<< HEAD
-                            {visibleItems.map((resource) => (
-                                <SliderItem key={resource.resource_id} resource={resource} />
-                            ))}
-=======
                             {visibleItems.length === 0 ? (
                                 <p>No hay juegos disponibles.</p>
                             ) : (
@@ -77,7 +72,6 @@ export default function GameCarousel({ topic }) {
                                     <SliderItemGames key={game.resource_id} game={game} />
                                 ))
                             )}
->>>>>>> 088f693c21ed6b8be64267a30e11faae5a9ec602
                         </div>
 
                     </div>
