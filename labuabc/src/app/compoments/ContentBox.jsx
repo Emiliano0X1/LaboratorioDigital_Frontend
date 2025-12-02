@@ -1,15 +1,15 @@
 import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import IsLoading from "./Loading";
-import SliderItem from "./SliderItem";
-import getAllResourcesByTopic from "../queryOptions/getAllResources";
+import getAllActiveGames from "../queryOptions/getAllAvailableGames";
+import SliderItemGames from "./SliderItemGame";
 
-export default function ResourceCarousel({ topic, topic_id }) {
+export default function GameCarousel({ topic }) {
 
     const [pageIndex, setPageIndex] = useState(0);
-    const RESOURCES_PER_PAGE = 4;
+    const GAMES_PER_PAGE = 4;
 
-    const { data, isLoading, error } = useQuery(getAllResourcesByTopic(topic_id));
+    const { data, isLoading, error } = useQuery(getAllActiveGames());
 
     if (error) {
         console.log("Hubo un error en el sistema", error);
@@ -17,7 +17,7 @@ export default function ResourceCarousel({ topic, topic_id }) {
 
     const resources = data?.data?.data || [];
 
-    const visibleItems = resources.slice(pageIndex, pageIndex + RESOURCES_PER_PAGE);
+    const visibleItems = resources.slice(pageIndex, pageIndex + GAMES_PER_PAGE);
 
     const handleNext = () => {
         if (pageIndex + RESOURCES_PER_PAGE < resources.length) {
@@ -65,9 +65,19 @@ export default function ResourceCarousel({ topic, topic_id }) {
                     <div className="relative w-[80%] flex items-center">
 
                         <div className="w-full grid grid-cols-4 gap-6 px-12">
+<<<<<<< HEAD
                             {visibleItems.map((resource) => (
                                 <SliderItem key={resource.resource_id} resource={resource} />
                             ))}
+=======
+                            {visibleItems.length === 0 ? (
+                                <p>No hay juegos disponibles.</p>
+                            ) : (
+                                visibleItems.map((game) => (
+                                    <SliderItemGames key={game.resource_id} game={game} />
+                                ))
+                            )}
+>>>>>>> 088f693c21ed6b8be64267a30e11faae5a9ec602
                         </div>
 
                     </div>
