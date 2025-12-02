@@ -44,7 +44,7 @@ export default function SliderItem({resource}){
                     </p>
 
                     <p className="text-center mt-2 text-lg font-medium">
-                        {resource.created_at}
+                        {new Date (resource.created_at).toLocaleDateString("es-MX")}
                     </p>
                 </CardContent>
             </Card>
