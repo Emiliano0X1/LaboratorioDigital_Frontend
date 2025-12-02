@@ -2,11 +2,11 @@
 import { useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import ResourceCarousel from "../compoments/ContentBox";
 import Login from "../compoments/LoginButton";
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
 import { useUser } from "../contextUser";
+import GameCarousel from "../compoments/ContentBox";
 
 export default function Minigames(){
 
@@ -43,7 +43,7 @@ export default function Minigames(){
         )}
         </div>
         
-        <ResourceCarousel topic="Minijuegos" topic_id={13}></ResourceCarousel>
+        <GameCarousel topic="Minijuegos"></GameCarousel>
             
         </main>
     );
