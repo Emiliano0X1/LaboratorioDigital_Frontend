@@ -29,7 +29,7 @@ export default function SliderItem({resource}){
             >
                 <CardContent>
                     <Image
-                        src={""} //This is gonna be the thumbail of the PDF (1st Page) So TODO logic to get first IMAGE and show it -- resource.file.thumbail_url
+                        src={"/shinji.png"} //This is gonna be the thumbail of the PDF (1st Page) So TODO logic to get first IMAGE and show it -- resource.file.thumbail_url
                         alt={"Hola mundo"} //
                         width={300}
                         height={200}
@@ -44,7 +44,7 @@ export default function SliderItem({resource}){
                     </p>
 
                     <p className="text-center mt-2 text-lg font-medium">
-                        {resource.created_at}
+                        {new Date (resource.created_at).toLocaleDateString("es-MX")}
                     </p>
                 </CardContent>
             </Card>
