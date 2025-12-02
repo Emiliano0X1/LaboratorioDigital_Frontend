@@ -29,7 +29,7 @@ export default function SliderItem({resource}){
             >
                 <CardContent>
                     <Image
-                        src={"/shinji.png"} //This is gonna be the thumbail of the PDF (1st Page) So TODO logic to get first IMAGE and show it -- resource.file.thumbail_url
+                        src={"/shinjidiv.png"} //This is gonna be the thumbail of the PDF (1st Page) So TODO logic to get first IMAGE and show it -- resource.file.thumbail_url
                         alt={"Hola mundo"} //
                         width={300}
                         height={200}
