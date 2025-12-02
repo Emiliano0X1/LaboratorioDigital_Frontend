@@ -9,6 +9,9 @@ export default function Forms() {
     const creadorRef = useRef(null);
     const descripcionJuegoRef = useRef(null);
     const disciplinaJuegoRef = useRef(null);
+    const dificultadFacilRef = useRef(null);
+    const dificultadInterRef = useRef(null);
+    const dificultadDificilRef = useRef(null);
     const gitPageRef = useRef(null);
 
     const handleSubmit = async () => {
