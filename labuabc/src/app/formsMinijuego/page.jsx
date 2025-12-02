@@ -50,6 +50,7 @@ export default function Forms() {
 
         <p>Creador del juego:</p>
         <input type="text" ref={creadorRef} placeholder="Creador" />
+        <br/> <br/>
 
         <p>Descripcion:</p>
         <input type="text" ref={descripcionJuegoRef} placeholder="Descripcion"></input>

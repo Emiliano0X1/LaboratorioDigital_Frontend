@@ -25,6 +25,23 @@ export default function SliderBooks({topic, topic_id}){
         console.log("Hubo un error en el sistema", error)
     }
 
+        if (!isLoading && data?.data?.data?.length === 0) {
+    return (
+        <div className="w-full flex flex-col items-center">
+        <div className="w-[80%] flex justify-between items-center mb-4">
+            <h2 className="scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0">
+            {topic}
+            </h2>
+            <button className="text-blue-600 font-medium hover:underline">Ver más</button>
+        </div>
+
+        <div className="w-[80%] bg-gray-100 border rounded-xl py-10 text-center text-gray-500">
+            No hay recursos disponibles en esta categoría.
+        </div>
+        </div>
+    );
+    }
+
     return(
         <div className="w-full flex flex-col items-center">
             {isLoading ? ( <IsLoading /> ) : ( 
