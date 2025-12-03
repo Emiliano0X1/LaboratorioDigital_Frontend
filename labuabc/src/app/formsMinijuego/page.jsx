@@ -1,8 +1,6 @@
 "use client";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { useRef, useState } from "react";
-import { postNewResource } from "../queryOptions/createNewResource";
-import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -10,12 +8,13 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import getTopics from "../queryOptions/getTopics";
 import IsLoading from "../compoments/Loading";
 import { useUser } from "../contextUser";
+import { postNewGame } from "../queryOptions/createNewMinigame";
 
 export default function Forms() {
     const nombreGameRef = useRef(null);
     const descripcionGameRef = useRef(null);
     const repoRef = useRef(null);
-    const githubPageRefRef = useRef(null);
+    const githubPageRef = useRef(null);
     const [successMessage, setSuccessMessage] = useState("");
     const [errorMessage, setErrorMessage] = useState("");
     
@@ -27,16 +26,16 @@ export default function Forms() {
     }
 
     const mutation = useMutation({
-        mutationFn: postNewResource,
-        onSuccess: (data) => {
-            setSuccessMessage("¡Recurso creado exitosamente!");
+        mutationFn: postNewGame,
+        onSuccess: () => {
+            setSuccessMessage("¡Minijuego enviado exitosamente! Ahora esta bajo revision,");
             setErrorMessage("");
             // Limpiar el formulario
             if (nombreGameRef.current) nombreGameRef.current.value = "";
             if (descripcionGameRef.current) descripcionGameRef.current.value = "";
             if (githubPageRef.current) githubPageRef.current.value = "";
             if (repoRef.current) repoRef.current.value = "";
-            setSelectedTopics([]);
+            //setSelectedTopics([]);
             
             // Limpiar mensaje de éxito después de 5 segundos
             setTimeout(() => {
@@ -78,15 +77,18 @@ export default function Forms() {
             }
             
 
-            const formData = new FormData();
-            formData.append('title', nombreGameRef.current.value.trim());
-            formData.append('description', descripcionGameRef.current.value.trim());
-            formData.append('repoLink', repoRef.current.value.trim());
-            formData.append('gitpageLink', githubPageRef.current.value.trim());
-            formData.append('status', 'ENVIADO');
-            formData.append('user_id', user.user_id);
+            const body = {
+                title: nombreGameRef.current.value.trim(),
+                description: descripcionGameRef.current.value.trim(),
+                game_url: githubPageRef.current.value.trim(),
+                repo_url: repoRef.current.value.trim(),
+                status: "PENDING",
+                user_id: user.user_id
+            };
+            
+            console.log(body)
 
-            mutation.mutate(formData);
+            mutation.mutate(body);
         } catch (error) {
             setErrorMessage("Ocurrió un error inesperado. Por favor, intenta de nuevo.");
             console.error("Hubo un error en el formulario", error);
@@ -101,10 +103,10 @@ export default function Forms() {
         );
     };
 
-    const topics = data?.data?.data || [];
+    //const topics = data?.data?.data || [];
 
     return (
-        <main className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-200 py-10 px-4">
+        <main className="min-h-screen bg-linear-to-br from-slate-50 to-slate-200 py-10 px-4">
             <div className="max-w-2xl mx-auto">
                 <Card>
                     <CardHeader>
@@ -171,7 +173,7 @@ export default function Forms() {
                                     <Input
                                         id="githubPageLink"
                                         type="text"
-                                        ref={githubPageRefRef}
+                                        ref={githubPageRef}
                                         placeholder="Ingresa un link al Github Pages"
                                         required
                                     />

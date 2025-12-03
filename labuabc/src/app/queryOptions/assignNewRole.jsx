@@ -1,6 +1,6 @@
 
 export const assignRole = async({email, role}) => {
-    const response = await fetch(`http://localhost:3000/api/users/role`, {
+    const response = await fetch(`https://laboratoriodigital-backend.onrender.com/api/users/role`, {
         method : 'PATCH',
         headers: {
             "Content-Type": "application/json", // <- esto es clave

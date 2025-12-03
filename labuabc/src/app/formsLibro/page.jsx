@@ -108,7 +108,7 @@ export default function Forms() {
     const topics = data?.data?.data || [];
 
     return (
-        <main className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-200 py-10 px-4">
+        <main className="min-h-screen bg-linear-to-br from-slate-50 to-slate-200 py-10 px-4">
             <div className="max-w-2xl mx-auto">
                 <Card>
                     <CardHeader>

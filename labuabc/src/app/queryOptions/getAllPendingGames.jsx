@@ -1,6 +1,6 @@
 import { queryOptions } from "@tanstack/react-query";
 
-export default function getAllActiveGames(){
+export default function getAllPendingGames(){
     return queryOptions({
         queryKey : ['gamesActive'],
         queryFn : fetchAllGames
@@ -8,6 +8,6 @@ export default function getAllActiveGames(){
 }
 
 const fetchAllGames =  async () => {
-    const response = await fetch(`https://laboratoriodigital-backend.onrender.com/api/games?status=active`)
+    const response = await fetch(`https://laboratoriodigital-backend.onrender.com/api/games?status=PENDING`)
     return response.json()
 }

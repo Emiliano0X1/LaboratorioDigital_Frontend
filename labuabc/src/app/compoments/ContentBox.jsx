@@ -69,7 +69,7 @@ export default function GameCarousel({ topic }) {
                                 <p>No hay juegos disponibles.</p>
                             ) : (
                                 visibleItems.map((game) => (
-                                    <SliderItemGames key={game.resource_id} game={game} />
+                                    <SliderItemGames key={game.game_id} game={game} />
                                 ))
                             )}
                         </div>

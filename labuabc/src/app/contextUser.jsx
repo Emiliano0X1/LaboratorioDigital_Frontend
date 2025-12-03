@@ -33,7 +33,7 @@ const UserProvider = ({children}) => {
         const {data : listener} = supabase.auth.onAuthStateChange((_event, session) => {
             setSession(session)
             if(session){
-                fetch("http://localhost:3000/api/users", {
+                fetch("https://laboratoriodigital-backend.onrender.com/api/users", {
                     method : 'POST',
                     headers : {
                         Authorization: `Bearer ${session.access_token}`,

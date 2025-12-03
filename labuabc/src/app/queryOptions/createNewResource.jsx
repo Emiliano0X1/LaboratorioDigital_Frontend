@@ -1,5 +1,5 @@
 export const postNewResource = async (resourceBody) => {
-    const response = await fetch("http://localhost:3000/api/resources/upload", {
+    const response = await fetch("https://laboratoriodigital-backend.onrender.com/api/resources/upload", {
         method: "POST",
         body: resourceBody
     });

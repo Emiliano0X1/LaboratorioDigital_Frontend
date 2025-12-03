@@ -8,6 +8,6 @@ export default function getTopics(){
 }
 
 const fetchTopics = async () => {
-    const response = await fetch("http://localhost:3000/api/topics")
+    const response = await fetch("https://laboratoriodigital-backend.onrender.com/api/topics")
     return response.json()
 }

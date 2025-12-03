@@ -10,6 +10,6 @@ export default function getFileLinkById(file_id){
 }
 
 const fetchFileById = async (file_id) => {
-    const response = await fetch(`http://localhost:3000/api/files/${file_id}`)
+    const response = await fetch(`https://laboratoriodigital-backend.onrender.com/api/files/${file_id}`)
     return response.json()
 }

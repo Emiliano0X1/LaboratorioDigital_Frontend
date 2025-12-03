@@ -8,6 +8,6 @@ export default function getAllTeachers(){
 }
 
 const fetchTeacher = async() => {
-    const response = await fetch("http://localhost:3000/api/users/teachers")
+    const response = await fetch("https://laboratoriodigital-backend.onrender.com/api/users/teachers")
     return response.json()
 }
