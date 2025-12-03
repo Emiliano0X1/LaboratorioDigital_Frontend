@@ -1,6 +1,6 @@
 
 export const assignStatus = async({game_id, status}) => {
-    const response = await fetch(`https://laboratoriodigital-backend.onrender.com/api/games/7`, {
+    const response = await fetch(`https://laboratoriodigital-backend.onrender.com/api/games/${game_id}/status`, {
         method : 'PATCH',
         headers: {
             "Content-Type": "application/json", // <- esto es clave
