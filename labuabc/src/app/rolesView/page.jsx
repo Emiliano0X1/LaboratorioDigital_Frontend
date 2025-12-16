@@ -2,13 +2,13 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import TeacherCard from "../compoments/TeacherCard";
 import AssignRole from "../compoments/assingRole";
 import { useQuery } from "@tanstack/react-query";
-import getAllTeachers from "../queryOptions/getTeachers";
+import { getAllTeachers } from "../queryOptions/getTeachers";
 
 export default function RoleAssign(){
 
     //TODO - Fucntion to get ALL the profesors registered
 
-    const {data, error} = useQuery(getAllTeachers())
+    const {data, error} = useQuery(getAllTeachers)
     if(error){
         console.error("No se pudo obtener los profesores")
     }

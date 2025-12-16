@@ -8,12 +8,13 @@ import {
   FieldSet,
 } from "@/components/ui/field"
 import { Input } from "@/components/ui/input"
-import { useMutation, useQuery } from "@tanstack/react-query"
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query"
 import { assignRole } from "../queryOptions/assignNewRole"
 import { useState } from "react"
 
 export default function AssignRole() {
 
+    const queryClient = useQueryClient()
 
     const [email, setEmail] = useState("")
     const [rol, setRol] = useState("")
@@ -21,6 +22,7 @@ export default function AssignRole() {
     const mutation = useMutation({
         mutationFn : assignRole,
         onSuccess : () => {
+          queryClient.invalidateQueries({ queryKey: ['teachers'] })
           console.log("Rol asignado exitosamente")
         },
 
