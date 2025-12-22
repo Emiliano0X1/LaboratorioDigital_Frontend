@@ -3,6 +3,7 @@ export const assignStatus = async({game_id, status}) => {
     const response = await fetch(`https://laboratoriodigital-backend.onrender.com/api/games/${game_id}/status`, {
         method : 'PATCH',
         headers: {
+            Authorization: `Bearer ${session.access_token}`,
             "Content-Type": "application/json", // <- esto es clave
         },
         body : JSON.stringify({status})

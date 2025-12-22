@@ -1,6 +1,12 @@
-export const postNewResource = async (resourceBody) => {
+export const postNewResource = async ({resourceBody, session}) => {
+
+    console.log("Session al momento de hacer el post : ", session)
+    
     const response = await fetch("https://laboratoriodigital-backend.onrender.com/api/resources/upload", {
         method: "POST",
+        headers : {
+            Authorization: `Bearer ${session.access_token}`,
+        },
         body: resourceBody
     });
 

@@ -27,7 +27,7 @@ export default function RoleAssign(){
                     </CardHeader>
 
                     <CardContent>
-                        {data.data.data.map((teacher, index) => (
+                        {data?.data?.data?.map((teacher, index) => (
                             <TeacherCard name={teacher.name} email={teacher.email} key={index}></TeacherCard>
                         ))}
                         

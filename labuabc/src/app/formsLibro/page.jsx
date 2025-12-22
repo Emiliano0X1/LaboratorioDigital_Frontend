@@ -19,8 +19,9 @@ export default function Forms() {
     const [successMessage, setSuccessMessage] = useState("");
     const [errorMessage, setErrorMessage] = useState("");
     
-    const { user } = useUser();
+    const { user, session } = useUser();
     const { data, isLoading, error } = useQuery(getTopics());
+    console.log("Session guardadada en context : ", session)
 
     if (error) {
         console.log("Hubo un error en el sistema", error);
@@ -90,7 +91,7 @@ export default function Forms() {
             formData.append('file', file);
             formData.append('topic_ids', JSON.stringify(selectedTopics));
 
-            mutation.mutate(formData);
+            mutation.mutate({formData, session});
         } catch (error) {
             setErrorMessage("Ocurrió un error inesperado. Por favor, intenta de nuevo.");
             console.error("Hubo un error en el formulario", error);

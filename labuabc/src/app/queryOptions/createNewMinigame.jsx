@@ -2,7 +2,10 @@
 export const postNewGame = async (gameBody) => {
     const response = await fetch("https://laboratoriodigital-backend.onrender.com/api/games", {
         method : 'POST',
-        headers: { "Content-Type": "application/json" },
+        headers: { 
+            Authorization: `Bearer ${session.access_token}`,
+            "Content-Type": "application/json" 
+        },
         body : JSON.stringify(gameBody)
     })
 
